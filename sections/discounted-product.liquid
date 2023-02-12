@@ -1,0 +1,233 @@
+{% comment %} <link rel="stylesheet" href="{{ 'discounted-product.css' | asset_url }}" media="print" onload="this.media='all'"> {% endcomment %}
+{{ 'discounted-product.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .discounted-custom-section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .discounted-custom-section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .discounted-custom-section-{{ section.id }} .bg_solid{
+    background: linear-gradient(to top, {{ section.settings.bg_color1 }} 0%, {{ section.settings.bg_color2 }} 100%);
+  }
+{%- endstyle -%}
+
+<div class="discounted-product discounted-custom-section-{{ section.id }}" >
+  <div class="container {% if section.settings.bg_color1 != '' or section.settings.bg_color2 %}bg_solid{% else %}bg_gradient_main{% endif %}">
+    <div class="content">
+      {% if section.settings.heading or section.settings.text  %}
+      <div class="content__text">
+        <h1>{{ section.settings.heading }}</h1>
+        <p>{{ section.settings.text }}</p>
+      </div>
+      {% endif %}
+      
+      {% assign product = section.settings.product %}
+      {%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}   
+
+      {% if product.media.size > 0 %}
+      <div class="content__product">
+        <a href="{{ product.url }}">
+        <img src="{{ featured_image.src | img_url: 'medium' }}" alt="{{ product.title }}">
+        </a>
+        <div class="content-product__details">
+          <h3>{{ product.title }}</h3>
+          <h4>
+            Vendor:   <span>{{ product.vendor }}</span>  <br/> 
+            Category: {{ product.collections.title.first }}
+            <span>
+                {{ product.collections.first.title }}
+            </span>
+          </h4>
+          <p>{{ product.description | truncate: 70 }} </p>
+          {%- render 'buy-buttons', product: product, product_form_id: product_form_id, section_id: section.id -%}
+          </div>
+      </div>
+      <div class="content__time-discount">
+        <div class="timer">
+          <div class="timer__title">
+            <h5 class="hr">HR</h5>
+            <h5 class="min">MIN</h5>
+            <h5 class="sec">SEC</h5>
+          </div>
+          <div class="timer__value">
+            <h1 class="countdown-timer"></h1>
+          </div>
+        </div>
+      
+        <h2>{{ section.settings.countdown_title }}</h2>
+        <div class="discount">
+          <h4>{{ section.settings.discount_value }}</h4>
+        </div>
+        {% else %}
+          <h1 class="not_found">Please select the product</h1>
+        {% endif %}
+      </div>
+    </div>
+
+<!--  Background materials start  -->
+    <div class="discounted-products__icons">
+      <div class="ellipse-437">
+        {% render 'ellipse-437' %}
+      </div> 
+
+      <div class="mask-group">
+        {% render 'mask-group' %}
+      </div>
+
+      <div class="rectangle-9124">
+        <img src="{{ 'rectangle-9124.png' | asset_url }}" />
+      </div>
+    </div>
+<!-- End of background materials  -->
+  
+  </div>
+  </div>
+</div>
+
+
+
+<!-- Countdown -->
+<script>
+  function zeroPad(num) {
+    return num.toString().padStart(2, '0');
+  }
+
+    
+  var sections = document.querySelectorAll(".discounted-custom-section-{{ section.id }}");
+  sections.forEach(function(sec) {
+    var expiryDate = new Date("{{ section.settings.expiry_date }}");
+    var countDownTimer = sec.querySelector(".countdown-timer");
+    console.log( "Liquid:","{{ section.settings.expiry_date }}")
+    var interval = setInterval(function() {
+      var currentTime = new Date();
+      var timeLeft = expiryDate.getTime() - currentTime.getTime();
+      // console.log("Zero:", currentTime.getTime(), expiryDate, timeLeft, "Liquid:",{{ section.settings.expiry_date }})
+      if (timeLeft < 0) {
+        clearInterval(interval);
+        countDownTimer.innerHTML = "EXPIRED";
+        sec.style.display="none";
+        return;
+      }
+
+      var hours = Math.floor(timeLeft / (1000 * 60 * 60));
+      var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+      countDownTimer.innerHTML =
+        zeroPad(hours) + " : " + zeroPad(minutes) + " : " + zeroPad(seconds);
+    }, 1000);
+  });
+</script>
+
+
+
+
+
+<!-- Ajax Call for ADD TO CART -->
+{% if product.media.size > 0 %}
+<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+  {% endif %}
+
+
+{% schema %}
+  {
+    "name": "Discounted Product",
+    "settings": [
+      {
+          "type": "text",
+          "id": "heading",
+          "default": "Get Discount",
+          "label": "Heading"
+        },
+      {
+          "type": "text",
+          "id": "text",
+          "default": "simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+          "label": "Text"
+        },
+      {
+        "type": "header",
+        "content": "Product"
+      },
+      {
+        "type": "product",
+        "id": "product",
+        "label": "t:sections.featured-product.settings.product.label"
+      },
+      {
+        "type": "header",
+        "content": "Countdown Timer"
+      },
+      {
+        "type": "text",
+        "id": "expiry_date",
+        "default": "2023-07-13",
+        "label": "Expiry date (YYYY-MM-DD)"
+      },
+      {
+          "type": "text",
+          "id": "countdown_title",
+          "default": "Hurry up to get this Discount",
+          "label": "Countdown Title"
+        },
+      {
+          "type": "liquid",
+          "id": "discount_value",
+          "default": "Get <span>20%</span> off",
+          "label": "Discount Value (text<span>20%</span>text)"
+        },
+        {
+          "type": "header",
+          "content": "Background Color Gradient"
+        },
+        {
+          "id":"bg_color1",
+          "type":"color",
+          "default":"#f29629",
+          "label":"Background Color1"
+        },
+        {
+          "id":"bg_color2",
+          "type":"color",
+          "default":"#f4aa54",
+          "label":"Background Color1"
+        },
+        {
+          "type": "header",
+          "content": "t:sections.all.padding.section_padding_heading"
+        },
+        {
+          "type": "range",
+          "id": "padding_top",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "label": "t:sections.all.padding.padding_top",
+          "default": 36
+        },
+        {
+          "type": "range",
+          "id": "padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "label": "t:sections.all.padding.padding_bottom",
+          "default": 36
+        }
+    ],
+    "presets": [
+      {
+        "name": "Discounted Product"
+      }
+    ]
+  }
+{% endschema %}

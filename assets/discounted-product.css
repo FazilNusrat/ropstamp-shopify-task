@@ -1,0 +1,284 @@
+
+
+.discounted-product{
+        text-align: -webkit-center;
+  }
+
+.discounted-product .not_found{
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    padding: 20px;
+    font-size: 40px;
+    line-height: 48px;
+    color: #FFFFFF;
+    place-self: center;
+    margin-left: 80px;
+}
+  
+  .discounted-product .bg_gradient_main{
+    background: linear-gradient(to top, rgb(242, 150, 41) 0%, rgb(244, 170, 84) 100%);
+  }
+  .discounted-product .container{
+    height: 256px;
+    width: 1440px;
+    position: relative;
+    z-index: 0;
+  }
+
+  .discounted-product .ellipse-437{
+    position: absolute;
+    left:0;
+    top:0;
+  }
+  .discounted-product .mask-group{
+    position: absolute;
+    left:0;
+    bottom:0;
+  }
+  
+  .discounted-product .rectangle-9124{
+    position: absolute;
+    right:0;
+    bottom:0;
+    top:0;
+  }
+  .discounted-product .rectangle-9124 img{
+    height: 254px;
+    width: 539.972px;
+    filter: grayscale(5);
+    opacity: 0.5;
+    position: relative;
+    z-index: -2;
+  }
+  .discounted-product .content{
+    display: flex;
+    text-align: left;
+  }
+  .discounted-product .content__text{
+    margin-left: 127px;
+    width: 322px;
+  }
+  .discounted-product .content__text h1{
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 48px;
+    color: #FFFFFF;
+  }
+  .discounted-product .content__text p{
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 199.5%;
+    color: #FFFFFF;
+  }
+
+  
+/*   .discounted-product .content__product a{
+    position: absolute;
+    top:0;
+    right:0;
+    left:0;
+    bottom:0;
+    width:100%;
+    height:100%;
+  } */
+  .discounted-product .content__product{
+    display: flex;
+    position: relative;
+  }
+  .discounted-product .content__product img{
+    width: 198px;
+    height: 182px;
+    margin-left: 56px;
+    align-self: center;
+    margin-top: 45px;
+  }
+  .discounted-product .content__product .content-product__details{
+    margin-left: 34px;
+    margin-top: 25px;
+  }
+  .discounted-product .content__product .content-product__details h3{
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    color: #FFFFFF;
+    margin-bottom: 12px;
+    margin-top: 0px;
+    width: 245px;
+  }
+  .discounted-product .content__product .content-product__details h4{
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: #FFFFFF;
+    margin-top: 0;
+    width: 245px;
+  }
+  .discounted-product .content__product .content-product__details h4 span{
+    font-weight: 400;
+  }
+  .discounted-product .content__product .content-product__details p{
+    font-family: inherit;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 153.02%;
+    color: #FFFFFF;
+    width: 245px;
+  }
+  
+  .discounted-product .product-form__submit{
+    width: 184px;
+    height: 38px;
+    min-height: 38px;
+    background: linear-gradient(180deg, #2693FA 0%, #174E83 100%);
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    --border-offset:none;
+  }
+  .discounted-product .product-form__submit span{
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: #FFFFFF;
+  }
+  .discounted-product .content__product .content-product__details .atc_btn{
+    width: 184px;
+    height: 38px;
+    background: linear-gradient(180deg, #2693FA 0%, #174E83 100%);
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+  }
+  .discounted-product .content__product .content-product__details .atc_btn span{
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: #FFFFFF;
+  }
+  .discounted-product .content__time-discount{
+    margin-left: 75px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .discounted-product .content__time-discount .timer{
+    width: 345px;
+    height: 79px;
+    margin-top: 23px;
+    background: linear-gradient(180deg, #FA7226 0%, #DA2127 100%);
+    border-radius: 6px;
+  }
+  .discounted-product .content__time-discount h2{
+    width: 353px;
+    height: 41px;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 172.2%;
+    text-align: center;
+    color: #FFFFFF;
+    font-family: sans-serif;
+    margin-top: 10px;
+    letter-spacing: -1px;
+  }
+  .discounted-product .discount{
+    width: 212px;
+    height: 53px;
+    background: #EF5726;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .discounted-product .discount h4{
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 172.2%;
+    text-align: center;
+    color: #FFFFFF;
+  }
+  .discounted-product .discount h4 span{
+        font-size: 32px;
+  }
+  .discounted-product .timer .timer__title{
+    display: flex;
+    height: fit-content;
+  }
+  .discounted-product .timer .timer__title h5{
+    height: 19px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+    font-family: sans-serif;
+    margin-top: 8px;
+    margin-bottom: 0;
+  }
+  .discounted-product .timer .timer__title .hr{
+    margin-left: 79px;
+    width: 25px;
+  }
+  .discounted-product .timer .timer__title .min{
+    width: 33px;
+    margin-left: 55px;
+  }
+  .discounted-product .timer .timer__title .sec{
+    width: 35px;
+    margin-left: 43px;
+  }
+  .discounted-product .timer .timer__value{
+    text-align: -webkit-center;
+  }
+  .discounted-product .timer .timer__value h1{
+    font-family: sans-serif;
+    height: 48px;    
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 48px;
+    color: #FFFFFF;
+    margin:0;
+  }
+
+@media (max-width: 1460px) {
+  
+}
+@media (max-width: 1460px) and (min-width: 1199px)  {
+  /* Target screens larger than or equal to 1200px */
+  
+  /* Add your CSS styles here */
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  /* Target screens between 992px and 1199px */
+  /* Add your CSS styles here */
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  /* Target screens between 768px and 991px */
+  /* Add your CSS styles here */
+}
+
+@media (max-width: 767px) {
+  /* Target screens smaller than 767px */
+  /* Add your CSS styles here */
+}
+
+  
