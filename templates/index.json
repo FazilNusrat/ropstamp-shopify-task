@@ -149,6 +149,7 @@
     },
     "fc81a06c-1017-4407-a8ac-b70dda3d3225": {
       "type": "discounted-product",
+      "disabled": true,
       "settings": {
         "heading": "Get Discount",
         "text": "simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
@@ -164,6 +165,7 @@
     },
     "e5202760-48df-402f-ad7a-8118d32255d9": {
       "type": "discounted-product",
+      "disabled": true,
       "settings": {
         "heading": "Winter Discount",
         "text": "simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
@@ -179,6 +181,7 @@
     },
     "66a02a3f-9cbc-4789-96df-3d716a613589": {
       "type": "discounted-product",
+      "disabled": true,
       "settings": {
         "heading": "Get Discount",
         "text": "simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
@@ -194,6 +197,7 @@
     },
     "fe6f09a6-a3b2-43c3-83b9-da4f5d0732a4": {
       "type": "discounted-product",
+      "disabled": true,
       "settings": {
         "heading": "Get Discount",
         "text": "simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
